@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Relevel Project</string>
+    <string name="add_a_note_button">Add a Note Button</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="enter_description">Enter Description</string>
+    <string name="save_note">Save Note</string>
+</resources>
