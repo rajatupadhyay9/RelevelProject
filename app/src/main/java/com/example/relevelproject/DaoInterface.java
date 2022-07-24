@@ -5,12 +5,12 @@ import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
-import java.util.ArrayList;
+import java.util.List;
 
 @Dao
 public interface DaoInterface {
     @Query("SELECT * FROM note")
-    ArrayList<Note> getAllNotes();
+    List<Note> getAllNotes();
 
     @Insert
     void insertNote(Note note);

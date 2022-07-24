@@ -12,7 +12,7 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class DashboardActivity extends AppCompatActivity {
     TextView emptyTextView;
@@ -27,14 +27,14 @@ public class DashboardActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        emptyTextView = findViewById(R.id.emptyText);
-        addNoteButton = findViewById(R.id.addButton);
+        emptyTextView = findViewById(R.id.noNotesTextView);
+        addNoteButton = findViewById(R.id.addNoteFab);
 
         db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "mydatabase").build();
+                AppDatabase.class, "mydatabase").allowMainThreadQueries().build();
         dao = db.daoInterface();
 
-        notesRecyclerView = findViewById(R.id.notesView);
+        notesRecyclerView = findViewById(R.id.notesRecylerView);
         notesRecyclerView.setHasFixedSize(true);
         notesRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
@@ -44,9 +44,12 @@ public class DashboardActivity extends AppCompatActivity {
                 startActivity(new Intent(DashboardActivity.this, InfoScreen.class));
             }
         });
+    }
 
-        ArrayList<Note> noteList = dao.getAllNotes();
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        List<Note> noteList = dao.getAllNotes();
         if(noteList.size() == 0) {
             emptyTextView.setVisibility(View.VISIBLE);
         } else {
@@ -54,9 +57,4 @@ public class DashboardActivity extends AppCompatActivity {
             notesRecyclerView.setAdapter(adapter);
         }
     }
-
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//    }
 }

@@ -18,11 +18,11 @@ public class InfoScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_info_screen);
 
-        titleText = findViewById(R.id.titleText);
-        descriptionText = findViewById(R.id.descText);
-        saveButton = findViewById(R.id.saveButton);
+        titleText = findViewById(R.id.newNoteTitleText);
+        descriptionText = findViewById(R.id.newNoteDescText);
+        saveButton = findViewById(R.id.newNoteSaveButton);
         db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "mydatabase").build();
+                AppDatabase.class, "mydatabase").allowMainThreadQueries().build();
 
         saveButton.setOnClickListener(new View.OnClickListener() {
             @Override

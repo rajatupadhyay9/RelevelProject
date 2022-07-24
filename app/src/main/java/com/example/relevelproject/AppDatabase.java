@@ -3,7 +3,7 @@ package com.example.relevelproject;
 import androidx.room.Database;
 import androidx.room.RoomDatabase;
 
-@Database(entities = {Note.class}, version = 1, exportSchema = false)
+@Database(entities = {Note.class}, version = 1)
 public abstract class AppDatabase extends RoomDatabase {
     public abstract DaoInterface daoInterface();
 }

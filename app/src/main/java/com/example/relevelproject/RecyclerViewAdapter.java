@@ -8,12 +8,12 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.ViewHolder> {
-    public ArrayList<Note> noteList;
+    public List<Note> noteList;
 
-    public RecyclerViewAdapter(ArrayList<Note> noteList) {
+    public RecyclerViewAdapter(List<Note> noteList) {
         this.noteList = noteList;
     }
 
@@ -41,7 +41,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            titleText = itemView.findViewById(R.id.rowTitleView);
+            titleText = itemView.findViewById(R.id.noteRowView);
         }
     }
 }

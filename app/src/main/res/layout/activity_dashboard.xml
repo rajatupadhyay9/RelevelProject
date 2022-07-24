@@ -7,20 +7,20 @@
     tools:context=".DashboardActivity">
 
     <TextView
-        android:id="@+id/emptyText"
+        android:id="@+id/noNotesTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
-        android:text="No Notes Right Now"
+        android:text="@string/no_notes_right_now"
         android:textSize="24sp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/notesView"
+        app:layout_constraintTop_toTopOf="@+id/notesRecylerView"
         tools:visibility="visible" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/notesView"
+        android:id="@+id/notesRecylerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -31,7 +31,7 @@
     </androidx.recyclerview.widget.RecyclerView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addButton"
+        android:id="@+id/addNoteFab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
